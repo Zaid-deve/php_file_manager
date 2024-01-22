@@ -1,0 +1,51 @@
+.file-content {
+    height: 100%;
+    width: 100%;
+    overflow: scroll;
+}
+
+.file-content :where(.file-header, .file-options-flex) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 55px;
+    background: #fff;
+    padding: 0 20px;
+}
+
+.file-options-flex {
+    justify-content: flex-end;
+    gap: 14px;
+}
+
+.file-header>div {
+    padding-right: 12px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-wrap: nowrap;
+    width: calc(100% - 50px);
+}
+
+:where(.file-header, .file-options-flex) .btn 
+{
+    padding:8px 32px;
+    background: var(--primary);
+    border-radius: 6px;
+    color: #fff;
+    font-weight: 500;
+    font-size: 12px;
+    opacity: .9;
+}
+
+.file-content .file-content-screen{
+    height: calc(100% - 110px);
+    width: 100%;
+    padding: 20px;
+    overflow: scroll;
+}
+
+.file-content-screen :where(img,video){
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}

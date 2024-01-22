@@ -1,0 +1,153 @@
+header{
+    height: 90px;
+    width: 100%;
+    background: #fff;
+    display: grid;
+}
+
+header .header-main{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-left{
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.header-left>img {
+    height: 40px;
+}
+
+.header-left .brand {
+    line-height: 20px;
+}
+.brand .logo{
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.header-left span {
+    color: var(--text-light);
+    font-style: italic;
+    font-size: 11px;
+    font-weight: 600;
+    display: block;
+}
+
+.header-right{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.header-right>.btn{
+    padding: 8px 0;
+    padding-right: 16px;
+    background-color: var(--primary);
+    color: #fff;
+    font-weight: 600;
+    font-size: 14px;
+    border-radius: 30px;
+}
+.header-right .btn i{
+    padding-inline: 16px 9px;
+}
+
+.profile-con{
+    position: relative;
+
+}
+.profile-con>img {
+    border-radius: 50%;
+    height: 36px;
+    width: 36px;
+    cursor: pointer;
+}
+
+.profile-con .profile-menu {
+    position: absolute;
+    top: 100%;
+    right: 12px;
+    background: #fff;
+    padding: 12px 0;
+    width: 220px;
+    box-shadow: 0 0 10px rgba(0,0,0,.08);
+    border-radius: 8px;
+    list-style: none;
+    z-index: 99999;
+    transition: all .2s ease;
+    transform-origin: top right;
+    transform: scale(0);
+}
+.profile-menu li .btn {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    width:100%;
+    padding: 7px 0;
+}
+
+.profile-menu li .btn i{
+    color: #000000da;
+    font-size: 19px;
+    font-weight: 500;
+}
+
+.profile-menu li .btn span {
+    color: #000000d0;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.profile-menu:first a :where(i,span){
+    color: orangered !important;
+}
+
+.profile-menu .btn:hover {
+    background: rgba(0,0,0,.01);
+}
+
+.profile-con:focus-within .profile-menu{
+    transform: scale(1);
+}
+
+@media (max-width: 768px) {
+    .header-left>img {
+        height: 32px;
+    }
+    .header-left .brand{
+        line-height: 16px;
+    }
+
+    .brand .logo{
+        font-size: 18px;
+    }
+    .brand span{
+        font-size: 11px;
+    }
+
+    .header-right>.btn{
+        /* padding: 10px 28px; */
+        font-size: 13px;
+    }
+
+    .profile-con .profile-menu{
+        top: 0;
+        right: 0;
+        width: 235px;
+    }
+    .profile-menu li a {
+        padding-block: 9px;
+    }
+    .profile-menu li a i{
+        font-size: 21px;
+    }
+    
+    .profile-menu li a span {
+        font-size: 16px;
+        font-weight: 600;
+    }
+}

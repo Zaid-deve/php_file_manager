@@ -1,0 +1,345 @@
+main {
+    height: calc(100% - 90px);
+    position: relative;
+}
+
+main .main-container {
+    display: flex;
+}
+
+.file-view {
+    display: grid;
+    align-content: start;
+    gap: 32px;
+    padding: 16px;
+    width: 100%;
+    overflow-x: scroll;
+}
+
+.file-view .file-search {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 6px;
+    max-width: 420px;
+    width: 100%;
+}
+
+.file-search .inp {
+    height: 40px;
+    font-size: 14px;
+    caret-color: var(--primary);
+    width: 100%;
+}
+
+.file-search i {
+    padding: 0 12px;
+}
+
+.file-view-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 120px));
+    justify-content: baseline;
+    gap: 32px 16px;
+}
+
+.file-item {
+    position: relative;
+    text-align: center;
+}
+
+.file-icon img {
+    height: 65px;
+    width: 65px;
+    margin: auto;
+}
+
+.file-item h3 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-light);
+    line-height: 22px;
+    margin-top: 4px;
+    word-break: break-all;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.file-item input[type='checkbox'] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 15px;
+    width: 15px;
+    accent-color: var(--primary);
+    cursor: pointer;
+    z-index: 999;
+}
+
+.file-item>span {
+    font-size: 10px;
+    color: var(--text-light);
+    font-weight: 500;
+    font-style: italic;
+    display: block;
+}
+
+.login-info,
+.no-files-con {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    gap: 16px;
+    padding: 20px;
+}
+
+:where(.login-info, .no-files-con) img {
+    height: 200px;
+    width: 320px;
+}
+
+:where(.login-info, .no-files-con) h3 {
+    font-size: 24px;
+    color: var(--primary);
+    font-weight: 500;
+    line-height: 34px;
+}
+
+:where(.login-info, .no-files-con) .btn {
+    padding: 12px 54px;
+    background: var(--primary);
+    color: #fff;
+    font-size: 14px;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+.create-file-con {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .07);
+    z-index: 999;
+    display: grid;
+    padding: 20px;
+    transition: all .12s ease;
+    transform: scale(1);
+}
+
+.create-file-form {
+    margin: auto;
+    background: #fff;
+    border-radius: 6px;
+    padding: 16px 18px;
+    max-width: 380px;
+    width: 100%;
+    position: relative;
+}
+
+.create-file-con.hide {
+    transform: scale(0);
+}
+
+.create-file-form h3 {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--text-light);
+}
+
+.create-file-form .inp {
+    border: 1px solid var(--text-light);
+    margin-top: 12px;
+    height: 40px;
+    width: 100%;
+    padding: 0 12px;
+    font-size: 15px;
+    border-radius: 4px;
+}
+
+.err {
+    font-size: 13px;
+    font-weight: 500;
+    color: orangered;
+    margin-top: 2px;
+}
+
+.create-file-form .btn-create-file {
+    margin-top: 22px;
+    background: var(--primary);
+    padding: 9px 42px;
+    margin-inline: auto;
+    color: #fff;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+.create-file-form .btn-close-con {
+    position: absolute;
+    right: -12px;
+    top: -12px;
+    background: rgba(0, 0, 0, .5);
+    border-radius: 50%;
+    padding: 6px 7px;
+}
+
+.btn-close-con i {
+    color: #eee;
+    font-size: 19px;
+}
+
+.create-file-path {
+    margin-top: 7px;
+    font-size: 13px;
+    color: var(--text-light);
+    font-style: italic;
+}
+
+.del-acc-outer{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .07);
+    padding: 20px;
+    z-index: 9999;
+    display: none;
+}
+.del-acc-outer.show{
+    display: flex;
+}
+
+.del-acc-outer .del-acc-box {
+    margin: auto;
+    background: #fff;
+    max-width: 420px;
+    width: 100%;
+    padding: 16px 12px;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+}
+
+.del-acc-box .del-acc-header 
+{
+    border-bottom: 1px solid rgba(0, 0, 0, .07);
+    padding-bottom: 16px;
+}
+.del-acc-header h3 {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--text-light);
+}
+.del-acc-box .del-acc-content 
+{
+    text-align: center;
+    padding: 16px 0;
+}
+.del-acc-content img {
+    max-height: 190px;
+    margin: auto;
+}
+.del-acc-content h3 {
+    font-size: 21px;
+    color: var(--primary);
+    margin-top: 12px;
+}
+.del-acc-content p{
+    font-size: 13px;
+    color: var(--text-light);
+    margin-top: 5px;
+}
+.del-acc-content .del-acc-btns {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 27px;
+    gap: 9px;
+}
+.del-acc-btns .btn {
+    padding: 9px 32px;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.del-acc-btns .btn:first-child{
+    color: orangered;
+}
+.del-acc-btns .btn:last-child{
+    border-radius: 6px;
+    background: var(--primary);
+    color: #eee;
+}
+
+@media (max-width: 920px) {
+    main .main-container {
+        padding: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    :where(.login-info, .no-files-con) img {
+        height: 150px;
+        width: 220px;
+    }
+
+    :where(.login-info, .no-files-con) h3 {
+        font-size: 19px;
+    }
+
+    :where(.login-info, .no-files-con) .btn {
+        padding: 10px 32px;
+    }
+}
+
+@media (max-width: 620px) {
+    .file-view .file-search {
+        width: 100%;
+        max-width: none;
+    }
+
+    .file-view-item .file-view-icon {
+        height: 70px;
+    }
+
+    .main-container .sidebar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+        padding: 0 28px;
+    }
+    .sidebar .sidebar-header {
+        padding-inline: 0;
+    }
+    .sidebar .file-wrapper {
+        padding-inline: 0 !important;
+    }
+
+    .main-container .sidebar.hide {
+        display: none;
+    }
+
+    .add-con i{
+        padding-left: 0 !important;
+    }
+
+    .file-wrapper{height: 40px;}
+
+    .file-wrapper img {
+        max-height: 24px;
+    }
+
+    .file-wrapper span{
+        font-size: 16px;
+    }
+}

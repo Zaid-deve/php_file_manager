@@ -1,0 +1,97 @@
+.upload-outer {
+    height: calc(100% - 90px);
+    display: flex;
+}
+
+.upload-outer .upload-box {
+    margin: auto;
+    max-width: 420px;
+    width: 100%;
+    padding: 16px 24px;
+    background: #fff;
+    box-shadow: 0 0 10px #eee;
+    border-radius: 8px;
+    display: grid;
+    gap: 12px;
+}
+
+.upload-box .upload-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(0,0,0,.02);
+    padding-bottom: 12px;
+}
+
+.upload-header .btn-info {
+    background: rgba(0,0,0,.02);
+    border-radius: 50%;
+    padding: 3px 5px;
+}
+
+.upload-path-sel select{
+    width: 100%;
+    height: 36px;
+    border: 1px solid rgba(0,0,0,.04);
+    margin-top: 8px;
+    border-radius: 6px;
+    padding-left: 9px;
+}
+
+.upload-path-sel label {
+    font-size: 13px;
+}
+
+.upload-err {
+    background: orangered;
+    border-radius: 4px;
+    padding: 16px 12px;
+    display: none;
+}
+.upload-err.show {
+    display: block;
+}
+
+.upload-err-text {
+    font-size: 14px;
+    color: #fff;
+}
+
+.upload-box .upload-file-select {
+    background: rgba(0,0,0,.02);
+    padding: 24px 9px;
+    text-align: center;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.upload-file-select i{
+    font-size: 38px;
+    color: var(--primary);
+}
+
+.upload-file-select h1 {
+    font-size: 21px;
+    color: var(--primary);
+    margin-top: 14px;
+}
+
+.upload-file-select span{
+    font-size: 11px;
+    color: var(--text-light);
+}
+
+.btn-upload {
+    display: block;
+    margin-top: 12px;
+    background: var(--primary);
+    padding: 9px 0;
+    border-radius: 6px;
+    color: #eee;
+    font-weight: 600;
+}
+
+.btn-upload:disabled{
+    opacity: .6;
+    cursor: not-allowed;
+}
