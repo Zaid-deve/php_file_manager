@@ -171,6 +171,10 @@ if ($logedIn) {
                             <i class='ri-search-2-line'></i>
                             <input type='text' class='inp' id='_file_search' oninput="searchFile(this)" placeholder='Search Files...'>
                         </div>
+                        <div class="file-view-btns">
+                            <button class="btn btn-check-all"><i class="ri-checkbox-line"></i>&nbsp;&nbsp;Check All</button>
+                            <button class="btn btn-del-cheked"><i class="ri-delete-bin-6-fill"></i>&nbsp;&nbsp;Delete Files</button>
+                        </div>
                         <div class='file-view-list'>
 
                             <?php

@@ -71,7 +71,7 @@ if (isset($_GET['path']) or isset($loadDefPath)) {
                                 </div>
                                 <h3>$name</h3>
                                 $filescount_span
-                                <input type='checkbox' id='wrapper-1'>
+                                <input type='checkbox' onclick='checkFile(event)'>
                             </div>";
             }
         } else $output = "NO FILES IN THIS FOLDER";

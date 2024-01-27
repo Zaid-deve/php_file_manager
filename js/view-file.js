@@ -123,3 +123,73 @@ async function del_file(wrapper, e) {
         } else alert('Sonething Went Wrong !');
     }
 }
+
+const view_file_btns = document.querySelector('.file-view-btns'),
+    btn_check_all = view_file_btns.children[0],
+    btn_del_checked = view_file_btns.children[1],
+    checked_files = new Set()
+
+let is_all_cheked = false;
+btn_check_all.addEventListener('click', function (e) {
+    for (let i = 0; i < path_view.childElementCount; i++) {
+        let fbox = path_view.children[i],
+            cinp = fbox.lastElementChild
+
+        if (!is_all_cheked) {
+            cinp.checked = true
+            checked_files.add(fbox.dataset.path)
+        } else {
+            cinp.checked = false
+            checked_files.delete(fbox.dataset.path)
+        }
+    }
+
+    if (is_all_cheked) {
+        is_all_cheked = false
+        view_file_btns.classList.remove('show')
+        this.innerHTML = "<i class='ri-chekbox-line'></i>&nbsp;&nbsp;Check All"
+
+    }
+    else {
+        is_all_cheked = true
+        this.innerHTML = "<i class='ri-close-line'></i>&nbsp;&nbsp;De-Select All"
+    }
+})
+
+btn_del_checked.addEventListener('click', async function (e) {
+    if (checked_files.size > 0) {
+        this.setAttribute('disabled',true)
+
+
+        // prepare file to delete
+        const data = Array.from(checked_files);
+        const r = await fetch('php/delallfiles.php', {
+            method:'POST',
+            body: JSON.stringify({files: data})
+        })
+
+        if(r.ok)
+        {
+            const res = (await r.text()).trim();
+            if(res==='success'){
+                for(let c in path_view.children){
+                    path_view.children[c].remove()
+                }
+            }
+        }
+        else alert(r.status);
+    }
+})
+
+function checkFile(e) {
+    e.stopPropagation()
+    const target = e.target.parentElement,
+        path = target.dataset.path
+
+    if (path) {
+        if (e.target.checked) checked_files.add(path);
+        else checked_files.delete(path);
+    }
+    if (checked_files.size > 0) view_file_btns.classList.add('show')
+    else view_file_btns.classList.remove('show')
+}

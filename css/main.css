@@ -278,6 +278,31 @@ main .main-container {
     color: #eee;
 }
 
+.file-view-btns{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+    display: none;
+}
+.file-view-btns.show{
+    display: flex;
+}
+.file-view-btns .btn {
+    padding: 8px 30px;
+    border-radius: 9px;
+    font-weight: 600;
+    font-size: 14px;
+}
+.file-view-btns .btn:first-child{
+    border: 1px solid;
+    color: var(--primary);
+}
+
+.file-view-btns .btn:last-child{
+    background: rgb(175, 61, 19);
+    color: #eee;
+}
 @media (max-width: 920px) {
     main .main-container {
         padding: 0;
